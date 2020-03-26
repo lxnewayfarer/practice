@@ -1,0 +1,17 @@
+# latest version
+version: "3"
+
+# сервисы (контейнеры)
+services:
+  # БД
+  db:
+    image: postgres
+    container_name: music
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=music
+    ports:
+      - "5433:5432"
+  
+  
