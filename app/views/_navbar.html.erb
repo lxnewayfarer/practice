@@ -1,0 +1,56 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <%= image_tag "logo.jpg" %>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <%= link_to "Genres", genres_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Countries", countries_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Groups", groups_path, :class => "navbar-item is-hoverable" %>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <%- if user_signed_in?  %>
+            <%= link_to current_user.login, {controller: "peoples", action: "show", id: current_user.id}, :class => "bold button is-warning is-rounded" %>
+            <%= button_to 'Log out', destroy_user_session_path, :class => "button is-rounded", :method => :delete  %>
+           <%- else  %>
+            <%= link_to "Log in", new_user_session_path, :class => "button is-primary is-outlined" %>
+            <%= link_to "Sign up", new_user_registration_path, :class => "button is-primary" %>
+           <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<html class="has-navbar-fixed-top">

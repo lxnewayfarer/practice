@@ -1,4 +1,4 @@
-<%=  simple_form_for(@genre) do |f| %>
+<%=  simple_form_for(@group) do |f| %>
   <%= f.error_notification %>
 
   <div class="field">
@@ -11,6 +11,9 @@
                     class: 'input',
                     autofocus: true %>
       </div>
+      <div class="control">
+       <%= f.association :countries, multiple: true, as: :check_boxes %>
+        </div>
   </div>
   <div class="field">
     <%= f.button :submit %>

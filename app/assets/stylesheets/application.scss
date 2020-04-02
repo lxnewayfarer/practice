@@ -15,8 +15,39 @@
  */
 
  @import "bulma";
- body{
-    margin: 2%;
- }
-
-
+.nonrounded{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    border-radius: 0;
+}
+body{
+    margin: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.navbar-brand{
+    margin-left: 5%;
+}
+.navbar-end{
+    margin-right: 5%;
+}
+.tile{
+    transition: all 0.7s ease;
+}
+.is-child:hover{
+    background: rgb(24, 0, 37);
+    transition: all 0.7s ease;
+    transform: scale(1.05);
+}
+input.check_boxes{
+    margin: 10px;
+}
+tr:hover{
+    background: rgb(252, 238, 255);
+    transition: all 0.5s ease;
+}
+.bold{
+    font-weight: bolder;
+}
+.chang{
+    width: 100%;
+}

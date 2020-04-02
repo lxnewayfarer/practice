@@ -10,13 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_110836) do
+ActiveRecord::Schema.define(version: 2020_03_31_161647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "countries_groups", id: false, force: :cascade do |t|
+    t.bigint "country_id", null: false
+    t.bigint "group_id", null: false
+    t.index ["group_id", "country_id"], name: "index_countries_groups_on_group_id_and_country_id"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "text"
+    t.string "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

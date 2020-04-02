@@ -1,0 +1,60 @@
+<%= render "/navbar" %>
+
+
+
+<div class="card">
+  
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-128x128">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          <a class="button is-rounded chang">Change picture</a>
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= @user.login %></p>
+        <p class="subtitle is-6"><%= @user.email %></p>
+      </div>
+       
+    </div>
+    <br>
+
+  <% if current_user and current_user.id == @user.id %>
+    <div class="content">
+          
+          <%=  simple_form_for(@feed) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="field">
+              <label class="label">Say something</label>
+                <div class="control">
+                  <%= f.input_field :text, 
+                              label: false,
+                              required: true,
+                              placeholder: 'Text',
+                              class: 'textarea',
+                              rows: "10",
+                              autofocus: true %>
+                </div>
+            </div>
+            <div class="field">
+              <%= f.submit 'Post',
+                    class: "button" %>
+              </div>
+              <% end %>
+        </div>
+    </div>
+  <%end%>
+
+</div>
+<br>
+<% @feeds.each do |post| %>
+  <div class="box">
+    <h1 class='bold'>@<%=post.user.login%><br></h1>
+    <%= post.text %>
+    <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </div>
+    <% end %>
+
+

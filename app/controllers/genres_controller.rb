@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /genres
   # GET /genres.json
@@ -14,9 +15,6 @@ class GenresController < ApplicationController
 
   # GET /genres/new
   def new
-    if !current_user or current_user.login != 'admin'
-      redirect_to new_user_session_path, notice: 'You are not logged in as admin'
-    end
     @genre = Genre.new
   end
 
@@ -27,9 +25,6 @@ class GenresController < ApplicationController
   # POST /genres
   # POST /genres.json
   def create
-    if !current_user or current_user.login != 'admin'
-      redirect_to new_user_session_path, notice: 'You are not logged in as admin'
-    end
     @genre = Genre.new(genre_params)
 
     respond_to do |format|
@@ -46,9 +41,6 @@ class GenresController < ApplicationController
   # PATCH/PUT /genres/1
   # PATCH/PUT /genres/1.json
   def update
-    if !current_user or current_user.login != 'admin'
-      redirect_to new_user_session_path, notice: 'You are not logged in as admin'
-    end
     respond_to do |format|
       if @genre.update(genre_params)
         format.html { redirect_to @genre, notice: 'Genre was successfully updated.' }
@@ -63,9 +55,6 @@ class GenresController < ApplicationController
   # DELETE /genres/1
   # DELETE /genres/1.json
   def destroy
-    if !current_user or current_user.login != 'admin'
-      redirect_to new_user_session_path, notice: 'You are not logged in as admin'
-    end
     @genre.destroy
     respond_to do |format|
       format.html { redirect_to genres_url, notice: 'Genre was successfully destroyed.' }
