@@ -2,10 +2,17 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1 class="title">
   <%= @genre.name %>
-</p>
+</h1>
+<% @genre.albums.each do |album| %>
+<div class="box">
+        <%= link_to album.name, album, class: 'bold' %>
+        (<%= album.release.year %>) by 
+        <%= album.group.name  %>
+      
+      </div>
+<% end %>
 
 <%= link_to 'Edit', edit_genre_path(@genre) %> |
 <%= link_to 'Back', genres_path %>

@@ -14,6 +14,7 @@ class FeedsController < ApplicationController
         respond_to do |format|
             format.html { redirect_back fallback_location: { action: "show", id: current_user.id } }
         end 
+        
     end
 
     private

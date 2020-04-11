@@ -53,8 +53,9 @@
   <div class="box">
     <h1 class='bold'>@<%=post.user.login%><br></h1>
     <%= post.text %>
-    <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if current_user and (current_user.id == @user.id or current_user.is_moderator) %>
+      <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </div>
     <% end %>
-
 

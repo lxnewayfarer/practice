@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
-  
+  before_action :check_moderator, only: [ :edit, :update, :destroy]
   # GET /groups
   # GET /groups.json
   def index
@@ -12,6 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @albums = @group.albums
   end
 
   # GET /groups/new
@@ -72,5 +72,12 @@ class GroupsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def group_params
       params.require(:group).permit(:name, country_ids: [])
+    end
+
+    def check_moderator
+      if current_user and (current_user.is_admin or current_user.is_moderator)
+      else
+        redirect_to root_path
+      end
     end
 end

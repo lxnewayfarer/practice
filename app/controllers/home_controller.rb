@@ -18,6 +18,10 @@ class HomeController < ApplicationController
       @groups.each do |g|
         @subjects.push(g)
       end
+      @albums = Album.all
+      @albums.each do |g|
+        @subjects.push(g)
+      end
      
  end
 end

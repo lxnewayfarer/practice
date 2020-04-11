@@ -1,0 +1,41 @@
+
+<%=  simple_form_for(@album) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="field">
+    <label class="label">Name</label>
+      <div class="control">
+        <%= f.input_field :name, 
+                    label: false,
+                    required: true,
+                    placeholder: 'Name',
+                    class: 'input',
+                    autofocus: true %>
+      </div><br>
+      <label class="label">Release date</label>
+      <div class="control">
+      <%= f.input_field :release,
+                  as: :date %>
+      </div><br>
+      <div class="control">
+      <label class="label">Group</label>
+       <%= f.association :group, as: :radio_buttons  %>
+        </div><br>
+      <label class="label">Genres</label>
+       <%= f.association :genres, as: :check_boxes  %>
+        </div>
+        <br>
+      <div class="control">
+      <label class="label">Cover</label>
+       <%= f.input_field :cover, as: :file, class: "button"  %>
+        </div>
+
+    
+      
+      
+  </div>
+  <div class="field">
+    <%= f.button :submit %>
+    </div>
+    <% end %>
+

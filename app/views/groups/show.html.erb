@@ -1,9 +1,15 @@
+<%= render "/navbar" %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<h1 class="title"><%= @group.name %></h1>
+<h1 class="subtitle">Albums:</h1>
+
+<% @albums.each do |album| %>
+        <div class="box">
+        <%= link_to album.name, album, class: 'bold' %>
+        (<%= album.release.year %>) 
+      </div>
+    <% end %>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

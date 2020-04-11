@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_161647) do
+ActiveRecord::Schema.define(version: 2020_04_08_162654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string "name"
+    t.date "release"
+    t.string "group_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "cover"
+  end
+
+  create_table "albums_genres", id: false, force: :cascade do |t|
+    t.bigint "genre_id", null: false
+    t.bigint "album_id", null: false
+    t.index ["album_id", "genre_id"], name: "index_albums_genres_on_album_id_and_genre_id"
+  end
+
+  create_table "albums_songs", id: false, force: :cascade do |t|
+    t.bigint "song_id", null: false
+    t.bigint "album_id", null: false
+    t.index ["song_id", "album_id"], name: "index_albums_songs_on_song_id_and_album_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +66,13 @@ ActiveRecord::Schema.define(version: 2020_03_31_161647) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
+    t.string "audio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_161647) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "login"
+    t.string "role", default: "registred"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["login"], name: "index_users_on_login", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

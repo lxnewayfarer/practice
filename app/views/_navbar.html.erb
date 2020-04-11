@@ -7,13 +7,14 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
-
+      
       <%= link_to "Genres", genres_path, :class => "navbar-item is-hoverable" %>
       <%= link_to "Countries", countries_path, :class => "navbar-item is-hoverable" %>
       <%= link_to "Groups", groups_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Albums", albums_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Users", peoples_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Events", groups_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Goods", groups_path, :class => "navbar-item is-hoverable" %>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -22,13 +23,7 @@
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
+            Social networks
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">

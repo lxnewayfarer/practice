@@ -1,0 +1,28 @@
+<%=  simple_form_for(@song) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="field">
+    <label class="label">Name</label>
+      <div class="control">
+        <%= f.input_field :name, 
+                    label: false,
+                    required: true,
+                    placeholder: 'Name',
+                    class: 'input',
+                    autofocus: true %>
+      </div><br>
+      <div class="control">
+      <label class="label">Audio</label>
+       <%= f.input_field :audio, as: :file, class: "button"  %>
+        </div>
+
+    
+      
+      <%= f.input :album, as: :hidden, input_html: { value: @album.id } %>
+
+  </div>
+  <div class="field">
+    <%= f.button :submit %>
+    </div>
+    <% end %>
+

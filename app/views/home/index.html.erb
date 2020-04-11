@@ -9,7 +9,22 @@
            
                 <article class="tile is-child notification <%= ['q','w','e','r','t','y','i','u','o'].sample%> nonrounded">
                         <p class="subtitle"><%= @subject.name%></p>
-                        <p>Explore </p>
+                        <p>Explore 
+                        <% @explore = '' %>
+                        <% if @subject.class.name == 'Genre'%>
+                        <% @explore = 'genres' end %>
+                        <% if @subject.class.name == 'Album'%>
+                        <% @explore = 'albums' end%>
+                        <% if @subject.class.name == 'Country'%>
+                        <% @explore = 'countries' end %>
+                        <% if @subject.class.name == 'Group'%>
+                        <% @explore = 'groups' end %> 
+                        <%= @explore%></p>
+                        <% if @subject.class.name == 'Album'%>
+                            <div class="image aut">
+                                <%= image_tag(@subject.cover_url) %>
+                            </div>
+                            <% end %>
                         <br>
                 </article>
             <%end%>
