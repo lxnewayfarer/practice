@@ -3,6 +3,24 @@
 #
 # Examples:
 #
-admin = User.new( login: 'admin' , email: 'dolgikh.rey@yandex.ru', password: 'admin1' )
-admin.save
-admin.admin!
+#admin = User.create( login: 'admin' , email: 'dolgikh.rey@yandex.ru', password: 'admin1' )
+#admin.admin!
+
+Country.create( name: 'Russia' )
+Country.create( name: 'USA' )
+Country.create( name: 'UK' )
+Country.create( name: 'Ukraine' )
+Country.create( name: 'Belarus' )
+
+Genre.create( name: 'pop' )
+Genre.create( name: 'rap' )
+Genre.create( name: 'rock' )
+Genre.create( name: 'classic' )
+Genre.create( name: 'electronic' )
+Genre.create( name: 'dance' )
+Genre.create( name: 'indie' )
+
+User.create( login: 'admin', email: 'dolgikh.rey@yandex.ru', password: 'admin1', role: 'admin' )
+
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

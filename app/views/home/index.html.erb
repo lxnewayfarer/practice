@@ -9,6 +9,11 @@
            
                 <article class="tile is-child notification <%= ['q','w','e','r','t','y','i','u','o'].sample%> nonrounded">
                         <p class="subtitle"><%= @subject.name%></p>
+                        <% if @subject.class.name == 'Album'%>
+                            <div class="image aut is-128x128">
+                                <%= image_tag(@subject.cover_url) %>
+                            </div>
+                            <% end %>
                         <p>Explore 
                         <% @explore = '' %>
                         <% if @subject.class.name == 'Genre'%>
@@ -20,11 +25,7 @@
                         <% if @subject.class.name == 'Group'%>
                         <% @explore = 'groups' end %> 
                         <%= @explore%></p>
-                        <% if @subject.class.name == 'Album'%>
-                            <div class="image aut">
-                                <%= image_tag(@subject.cover_url) %>
-                            </div>
-                            <% end %>
+                        
                         <br>
                 </article>
             <%end%>

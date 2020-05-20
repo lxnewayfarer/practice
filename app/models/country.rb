@@ -3,4 +3,6 @@ class Country < ApplicationRecord
     before_create do
         self.name = name.downcase
     end
+    validates :name, uniqueness: true
+    
 end

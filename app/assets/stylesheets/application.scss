@@ -58,3 +58,57 @@ tr:hover{
 .aut {
     width: 100%;
 }
+// Place all the styles related to the Genres controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+article{
+    color: white;
+}
+
+article.q{
+    background: #7B1FA2;    
+}
+article.w{
+    background: #512DA8;
+}
+article.e{
+    background: #303F9F;
+}
+article.r{
+    background: #6A1B9A;
+}
+article.t{
+    background: #4527A0;
+}
+article.y{
+    background: #283593;
+}
+article.u{
+    background: #4A148C;
+}
+article.i{
+    background: #311B92;
+}
+article.o{
+    background: #1A237E;
+}
+a:link{ 
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+    font-variant: small-caps; 
+} 
+.log{
+    background: rgb(240, 126, 255);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 8px;
+    text-decoration: none;
+}
+.login{
+    background: rgb(193, 255, 174);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 8px;
+    text-decoration: none;
+}

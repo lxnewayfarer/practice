@@ -37,11 +37,11 @@
       <div class="navbar-item">
         <div class="buttons">
           <%- if user_signed_in?  %>
-            <%= link_to current_user.login, {controller: "peoples", action: "show", id: current_user.id}, :class => "bold button is-warning is-rounded" %>
-            <%= button_to 'Log out', destroy_user_session_path, :class => "button is-rounded", :method => :delete  %>
+            <%= link_to current_user.login, {controller: "peoples", action: "show", id: current_user.id}, :class => "login" %>
+            <%= button_to 'Log out', destroy_user_session_path, :class => "log", :method => :delete  %>
            <%- else  %>
-            <%= link_to "Log in", new_user_session_path, :class => "button is-primary is-outlined" %>
-            <%= link_to "Sign up", new_user_registration_path, :class => "button is-primary" %>
+            <%= link_to "Log in", new_user_session_path, :class => "log" %>
+            <%= link_to "Sign up", new_user_registration_path, :class => "log" %>
            <% end %>
         </div>
       </div>
