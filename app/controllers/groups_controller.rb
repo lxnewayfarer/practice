@@ -3,7 +3,8 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @q = Group.ransack(params[:q])
+    @groups = @q.result.includes(:countries).page(params[:page])
   end
 
   # GET /groups/1

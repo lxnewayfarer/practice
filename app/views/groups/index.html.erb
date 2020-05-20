@@ -1,31 +1,35 @@
 <%= render "/navbar" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
+<h1 class = "title">Groups</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Countries</th>
-    </tr>
-  </thead>
+<%= search_form_for @q do |f| %>
+  <%= f.label 'Name' %>
+  <%= f.search_field :name_cont %>
+  <br>
+  <%= f.label 'From' %>
+  <%= f.search_field :countries_name_cont %>
 
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to group.name, group %></td>
-        <td><% group.countries.each do |country|  %>
-                <%= country.name %> 
-                <% end %> </td> 
-        
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <%= f.submit "search" %>
+<% end %>
+
+
+<table class = "table">
+  <tr>
+    <th> <%= sort_link @q, :name, "Group"%></th>
+    <th> <%= sort_link @q, :country, "Countries"%></th>
+  </tr>
+  <% @groups.each do |group| %>
+  <tr>
+    <td><%= link_to group.name, group %></td>
+    <td><% group.countries.each do |country| %> 
+          <%= link_to country.name, country %>
+          <% end %></td>
+    <td><% group.albums.each do |album| %>
+          <% album.genres.each do |genre| %> 
+            <%= link_to genre.name, genre %>
+            <% end %>
+          <% end %></td>
+  </tr>
+  <% end %>
 </table>
-
-<br>
-
-<%= link_to 'New Group', new_group_path %>

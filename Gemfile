@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 gem 'activeadmin'
+gem 'ransack'
 gem 'bulma-rails'
 gem 'simple_form'
 gem 'devise'
