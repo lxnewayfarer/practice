@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
     @q = Group.ransack(params[:q])
     @groups = @q.result.includes(:countries).page(params[:page])
   end
+  
 
   # GET /groups/1
   # GET /groups/1.json

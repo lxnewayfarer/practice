@@ -20,7 +20,4 @@ Genre.create( name: 'electronic' )
 Genre.create( name: 'dance' )
 Genre.create( name: 'indie' )
 
-User.create( login: 'admin', email: 'dolgikh.rey@yandex.ru', password: 'admin1', role: 'admin' )
-
-
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

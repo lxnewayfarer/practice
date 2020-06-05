@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+gem 'activeadmin_addons'
 gem 'activeadmin'
 gem 'ransack'
 gem 'bulma-rails'

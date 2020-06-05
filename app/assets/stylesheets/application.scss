@@ -16,6 +16,7 @@
 
  @import "bulma";
 
+
 .nonrounded{
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     border-radius: 0;
@@ -94,10 +95,9 @@ article.o{
 }
 a:link{ 
     text-decoration: none; /* Отменяем подчеркивание у ссылки */
-    font-variant: small-caps; 
 } 
 .log{
-    background: rgb(240, 126, 255);
+    background: rgb(255, 255, 255);
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     border-radius: 10px;
     padding: 5px;
@@ -105,7 +105,7 @@ a:link{
     text-decoration: none;
 }
 .login{
-    background: rgb(193, 255, 174);
+    background: rgb(255, 255, 255);
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
     border-radius: 10px;
     padding: 5px;

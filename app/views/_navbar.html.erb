@@ -13,8 +13,8 @@
       <%= link_to "Groups", groups_path, :class => "navbar-item is-hoverable" %>
       <%= link_to "Albums", albums_path, :class => "navbar-item is-hoverable" %>
       <%= link_to "Users", peoples_path, :class => "navbar-item is-hoverable" %>
-      <%= link_to "Events", groups_path, :class => "navbar-item is-hoverable" %>
-      <%= link_to "Goods", groups_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Events", events_path, :class => "navbar-item is-hoverable" %>
+      <%= link_to "Goods", goods_path, :class => "navbar-item is-hoverable" %>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -38,7 +38,7 @@
         <div class="buttons">
           <%- if user_signed_in?  %>
             <%= link_to current_user.login, {controller: "peoples", action: "show", id: current_user.id}, :class => "login" %>
-            <%= button_to 'Log out', destroy_user_session_path, :class => "log", :method => :delete  %>
+            <%= link_to 'Log out', destroy_user_session_path, :class => "login", :method => :delete  %>
            <%- else  %>
             <%= link_to "Log in", new_user_session_path, :class => "log" %>
             <%= link_to "Sign up", new_user_registration_path, :class => "log" %>

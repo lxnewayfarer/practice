@@ -9,6 +9,7 @@
   <br>
   <%= f.label 'From' %>
   <%= f.search_field :countries_name_cont %>
+  
 
   <%= f.submit "search" %>
 <% end %>
@@ -17,7 +18,7 @@
 <table class = "table">
   <tr>
     <th> <%= sort_link @q, :name, "Group"%></th>
-    <th> <%= sort_link @q, :country, "Countries"%></th>
+    <th> <%= "Countries"%></th>
   </tr>
   <% @groups.each do |group| %>
   <tr>
@@ -25,11 +26,7 @@
     <td><% group.countries.each do |country| %> 
           <%= link_to country.name, country %>
           <% end %></td>
-    <td><% group.albums.each do |album| %>
-          <% album.genres.each do |genre| %> 
-            <%= link_to genre.name, genre %>
-            <% end %>
-          <% end %></td>
+    
   </tr>
   <% end %>
 </table>

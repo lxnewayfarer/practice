@@ -4,12 +4,14 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @q = Album.ransack(params[:q])
+    @albums = @q.result(distinct: true)
   end
 
   # GET /albums/1
   # GET /albums/1.json
   def show
+    set_album
     @songs = @album.songs
   end
 

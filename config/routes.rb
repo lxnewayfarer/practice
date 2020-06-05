@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :issues
+  resources :socials
+  resources :goods
+  resources :places
+  resources :cities
+  resources :events
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :songs

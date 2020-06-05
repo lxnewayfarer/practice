@@ -3,7 +3,8 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all
+    @q = Country.ransack(params[:q])
+    @countries = @q.result.page(params[:page])
   end
 
   # GET /countries/1

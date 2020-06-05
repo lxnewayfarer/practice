@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_091148) do
+ActiveRecord::Schema.define(version: 2020_06_05_091811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 2020_05_20_091148) do
     t.index ["song_id", "album_id"], name: "index_albums_songs_on_song_id_and_album_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "country_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string "name", null: false
   end
@@ -70,6 +77,15 @@ ActiveRecord::Schema.define(version: 2020_05_20_091148) do
     t.bigint "country_id", null: false
     t.bigint "group_id", null: false
     t.index ["group_id", "country_id"], name: "index_countries_groups_on_group_id_and_country_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "date"
+    t.string "place_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "feeds", force: :cascade do |t|
@@ -86,8 +102,39 @@ ActiveRecord::Schema.define(version: 2020_05_20_091148) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "goods", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.integer "quantity"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.string "name"
+    t.text "text"
+    t.date "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "address"
+    t.string "city_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "socials", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

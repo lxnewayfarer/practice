@@ -23,10 +23,8 @@
             
         <div class="column">
         <% @songs.each do |song| %>
-            <h1 class='subtitle'><%= song.name %></p> <%= link_to audio_tag(song.audio_url, controls: true) %>
+             <%= link_to audio_tag(song.audio_url, controls: true) %><%= song.name %></h1> <br>
             <% end %>
     </div>       
     </div>
-        <%= link_to 'Edit', edit_album_path(@album) %> |
-        <%= link_to 'Back', albums_path %>   |
-        <%= link_to 'Manage songs', songs_path( album: @album ) %>
+        

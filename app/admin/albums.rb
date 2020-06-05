@@ -9,13 +9,17 @@ ActiveAdmin.register Album do
   index do
     selectable_column
     id_column
+    column :group
     column :name
     column :release
     column :cover
+    #column :cover do |album|
+    #  link_to image_tag(album.cover_url, size: "150x100")
+    #end
     column :genres do |album|
       table_for album.genres.order('name ASC') do
         column do |genre|
-          genres.name
+          genre.name
         end
        end
     end

@@ -1,9 +1,10 @@
 class GenresController < ApplicationController
-  before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  before_action :set_genre, only: [:show]
   # GET /genres
   # GET /genres.json
   def index
-    @genres = Genre.all
+    @q = Genre.ransack(params[:q])
+    @genres = @q.result.page(params[:page])
   end
 
   # GET /genres/1
