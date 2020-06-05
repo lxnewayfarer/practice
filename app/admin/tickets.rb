@@ -1,6 +1,5 @@
-ActiveAdmin.register Good do
-    permit_params :name, :description, :price, :cover, :quantity
-
+ActiveAdmin.register Ticket do
+    permit_params :name, :event_id, :url
     # See permitted parameters documentation:
     # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
     #
