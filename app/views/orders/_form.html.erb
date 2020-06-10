@@ -1,0 +1,26 @@
+<%= form_with(model: order, local: true) do |form| %>
+
+  <div class="field">
+    <h1 class = 'subtitle'> <%= form.label Good.find(params[:good_id]).name + ' ' + Good.find(params[:good_id]).price.to_s + '$' %></h1>
+    <%= form.hidden_field :good_id, value: params[:good_id] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Your contacts' %>
+    <%= form.text_area :contacts %>
+  </div>
+
+  <div class="field">
+    <%= 'Our managers will contact you shortly' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

@@ -1,4 +1,14 @@
+<%= render "/navbar" %>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<h1 class="title"><%= @event.name %></h1>
+<%= link_to @event.place.name, @event.place, class: 'subtitle' %>
+<%= link_to @event.place.city.name, @event.place.city %><br>
+<p><%= @event.description %> <br> <%= @event.date %></p>
+<br>
+<% @event.tickets.each do |ticket| %>
+        <div class="box">
+        <%= link_to ticket.name, ticket.url, class: 'bold' %>
+      </div>
+    <% end %>
+

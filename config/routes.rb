@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :tickets
   resources :issues
   resources :socials
@@ -6,6 +7,9 @@ Rails.application.routes.draw do
   resources :places
   resources :cities
   resources :events
+  devise_for :users, controllers: { 
+    registrations: 'users/registrations' 
+  }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :songs
@@ -15,9 +19,7 @@ Rails.application.routes.draw do
   resources :genres
   resources :feeds
   resources :peoples, only: [:show, :index]
-  devise_for :users, controllers: { 
-    registrations: 'users/registrations' 
-  }
+  
   root "home#index"
   
 end

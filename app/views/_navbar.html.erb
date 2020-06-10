@@ -23,11 +23,11 @@
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            Social networks
+            <%= link_to "Social networks", socials_path, :class => "navbar-item is-hoverable" %>
           </a>
           <hr class="navbar-divider">
           <a class="navbar-item">
-            Report an issue
+            <%= link_to "Report an issue", new_issue_path, :class => "navbar-item is-hoverable" %>
           </a>
         </div>
       </div>

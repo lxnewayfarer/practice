@@ -6,7 +6,7 @@ class PeoplesController < ApplicationController
     end
 
     def index
-        @users = User.all.order(:loginname)
+        @users = User.all.order(:login)
     end
 
 
