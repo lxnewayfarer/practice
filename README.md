@@ -20,6 +20,6 @@
 
 Visit http://localhost:8000/admin and log in as the default user:
 
-    User: admin@example.com
+    Admin User: admin@example.com
 
     Password: password
